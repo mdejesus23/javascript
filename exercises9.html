@@ -7,38 +7,69 @@
     <title>Exercises 9</title>
 </head>
 <body>
-    <div id="cart"></div>
-
     <button id="apple" onclick="addToCart(this)">Apple</button>
     <button id="tomato" onclick="addToCart(this)">Tomato</button>
     <button id="eggs" onclick="addToCart(this)">Eggs</button>
-    <button onclick="clear()">Clear</button>
+    <button onclick="functionClear()">clear</button>
+    <div id="cart"></div>
+
+    <input id="num" type="text"/>
+    <button onclick="convertToCm(num.value)">Convert to CM</button>
+    <button onclick="convertToInches(num.value)">Convert to Inch</button>
+    <div id="result"></div>
+
+
+
 
     
     <script>
-        let addCart = [];
-        const cart = document.getElementById('cart');
 
-        
+        // add to cart function
+        const cart = document.getElementById("cart");
+
+        function functionClear() {
+            console.log("hello");
+        }
 
         function addToCart(item) {
             const elem = document.createElement("div");
-            elem.innerText = item;
+            elem.innerText = item.innerText;
             cart.appendChild(elem);
+
+            console.log("hello");
         }
 
-        function clear() {
+        function functionClear() {
             cart.innerHTML = '';
         }
-
-        function render() {
-            addCart.forEach(function (item) {
-                const elem = document.createElement("div");
-                elem.innerText = item;
-                cart.appendChild(elem);
-            });
-
+        //add to cart function END!
+        
+        
+        // function convertion
+        // inch to cm convertion
+        function convertToCm(numVal) {
+            // convert textbox value from string to number and multiply to convert the value.
+            const convertion = +numVal * 2.54;
+            // show the result on the page through innerText of a div with id="result".
+            const result = document.getElementById('result');
+            result.innerText = convertion;
         }
+
+        // cm to inch convertion
+        function convertToInches(numVal) {
+            // convert textbox value from string to number and multiply to convert the value.
+            const convertion = +numVal / 2.54;
+            // show the result on the page through innerText of a div with id="result".
+            const result = document.getElementById('result');
+            result.innerText = convertion;
+        }
+        // function convertion END!!
+
+
+
+
+
+
     </script>
 </body>
 </html>
