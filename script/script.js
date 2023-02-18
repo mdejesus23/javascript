@@ -1,4 +1,4 @@
-let todos = ["Get groceries", "Wash car", "Make dinner"];
+const todos = ["Get groceries", "Wash car", "Make dinner"];
 
 render();
 
@@ -14,9 +14,9 @@ function render() {
     document.getElementById("todo-list").innerHTML = '';
 
     todos.forEach(function (todoTitle) {
-        let element = document.createElement("div");
+        const element = document.createElement("div");
         element.innerText = todoTitle;
-        let todoList = document.getElementById("todo-list");
+        const todoList = document.getElementById("todo-list");
         todoList.appendChild(element);
     });
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises 9</title>
+</head>
+<body>
+    <div id="cart"></div>
+
+    <button id="apple" onclick="addToCart(this)">Apple</button>
+    <button id="tomato" onclick="addToCart(this)">Tomato</button>
+    <button id="eggs" onclick="addToCart(this)">Eggs</button>
+    <button onclick="clear()">Clear</button>
+
+    
+    <script>
+        let addCart = [];
+        const cart = document.getElementById('cart');
+
+        
+
+        function addToCart(item) {
+            const elem = document.createElement("div");
+            elem.innerText = item;
+            cart.appendChild(elem);
+        }
+
+        function clear() {
+            cart.innerHTML = '';
+        }
+
+        function render() {
+            addCart.forEach(function (item) {
+                const elem = document.createElement("div");
+                elem.innerText = item;
+                cart.appendChild(elem);
+            });
+
+        }
+    </script>
+</body>
+</html>
