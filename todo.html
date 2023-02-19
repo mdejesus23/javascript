@@ -13,44 +13,8 @@
 
     <div id="todo-list"></div>
 
-    <script>
-      const todos = [{
-        title: "Get groceries",
-        dueDate: "2023-10-04"
-      }, {
-        title: "Wash car",
-        dueDate: "2023-02-03"
-      }, {
-        title: "Make dinner",
-        dueDate: "2023-03-04"
-      }];
-
-      render();
-
-      function addTodo() {
-          const textBox = document.getElementById("todo-title");
-          const title = textBox.value;
-
-          const datePicker = document.getElementById("date-picker");
-          const dueDate = datePicker.value;
-          todos.push({
-            title: title,
-            dueDate: dueDate
-          });
-
-          render();
-      }
-
-      function render() {
-          document.getElementById("todo-list").innerHTML = "";
-
-          todos.forEach(function (todo) {
-              const element = document.createElement("div");
-              element.innerText = todo.title + " " + todo.dueDate;
-              const todoList = document.getElementById("todo-list");
-              todoList.appendChild(element);
-          });
-      }
+    <script src="script/script.js">
+      
     </script>
   </body>
 </html>
