@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises #12</title>
+</head>
+<body>
+
+
+
+    <script>
+        // Exercises 12.1
+        // return uppercase string
+        function makeItBig(str) {
+            return str.toUpperCase();
+        }
+        console.log(makeItBig("hello"));
+
+        // array of temperature in fahrenheit
+        const arrOfTemp = [20, 25, 35, 40, 33, 34];
+        // filter the array to return elements with above freezing point. 32 degrees fahrenheit.
+        function aboveFreezing(arr) {
+            const newArr = arr.filter(temp => temp > 32);
+
+            return newArr;
+        }
+        // create element to show the result on the webpage of aboveFreezing function.
+        const elem = document.createElement("div");
+        elem.innerText = `${aboveFreezing(arrOfTemp)}`;
+        document.body.appendChild(elem);
+
+        // apply filter method on array of object.
+        // object foodList
+        const foodList = [
+            {name: "Apple", color: "red"},
+            {name: "Egg", color: "white"},
+            {name: "Tomato", color: "red"}
+        ];
+
+        // function to filter the array of object to return the object with color ren properties
+        function removeRed(objArr) {
+            const newArrObj = objArr.filter(obj => obj.color == "red")
+
+            return newArrObj;
+        }
+
+        console.log(removeRed(foodList));
+    </script>
+    
+</body>
+</html>

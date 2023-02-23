@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises #11</title>
+</head>
+<body>
+    <div id="item-container"></div>
+    <div style="display: inline-block;">Total ammount = <div id="total-price"></div></div>
+    <button style="display: block;" onclick="clearTotal()">Clear items</button>
+    
+
+
+    <script>
+        const products = { Apple: 3, Orange: 4, Egg: 2};
+        let total = 0;
+
+
+
+        function createCart(objProductList) {
+            const keys = Object.keys(objProductList);
+
+            keys.forEach(function (prod) {
+                // get price of each items
+                const itemPrice = objProductList[prod];
+                // creates div container for each keys/value pairs of an object products.
+                const items = document.createElement("div");
+                items.innerText = `${prod} $${objProductList[prod]}`;
+                // show the total price with div element
+                const showTotal = document.getElementById("total-price");
+                showTotal.style = "display: inline-block;"
+                // creates add button
+                const addButton = document.createElement("button");
+                addButton.innerText = "Add";
+                addButton.style = "margin-left: 12px; background-color: blue; color: white; border: none;"
+                // place the button at the end of each items
+                items.appendChild(addButton);
+                // create anonymous function for addButton to show total price
+                addButton.onclick = function () {
+                    total += itemPrice;
+                    showTotal.innerText = ` ${total}`;
+                }
+                // render item list on a webpage
+                const itemList = document.getElementById("item-container");
+                itemList.appendChild(items);
+            });
+        }
+        createCart(products);
+
+        function clearTotal() {
+            total = 0;
+            const totalPrice = document.getElementById("total-price");
+            totalPrice.innerText = 0;
+        }
+
+
+    </script>
+</body>
+</html>
