@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises number 13</title>
+</head>
+<body>
+
+    
+    <script>
+        // declare an array of numbers
+        const arrOfNum = [9, 10, 5, -1, 110, 11, 25];
+        // created a function that will return the largest number of the array
+        function max() {
+            // the initVal = first element of the array at the index 0.
+            // the currVal = 2nd element of the array at the index 1.
+            const maxValue = arrOfNum.reduce((initVal, currVal) => {
+                // put this console.log to log and see the value of the parameters of every each iteration.
+                console.log(`initial: ${initVal}, current: ${currVal}`);
+                if (initVal > currVal) {
+                    return initVal;
+                } else {
+                    return currVal;
+                }
+            });
+            return maxValue;
+        }
+        // create element to display in the browser the largest number.
+        const displayMax = document.createElement("div");
+        displayMax.innerText = `largest number is ${max()}`;
+        document.body.appendChild(displayMax);
+
+
+        // Similarly, write a function min that returns the smallest number in the array.
+        function min() {
+            // the initVal = first element of the array at the index 0.
+            // the currVal = 2nd element of the array at the index 1.
+            const minValue = arrOfNum.reduce((initVal, currVal) => {
+                // put this console.log to log and see the value of the parameters of every each iteration.
+                console.log(`initial: ${initVal}, current: ${currVal}`);
+                if (initVal < currVal) {
+                    return initVal;
+                } else {
+                    return currVal;
+                }
+            });
+            return minValue;
+        }
+        // create element to display in the browser the min number.
+        const displayMin = document.createElement("div");
+        displayMin.innerText = `min number is ${min()}`;
+        document.body.appendChild(displayMin);
+
+        // Write a function that returns the smallest number that’s greater or equal to 0.
+        function minNonNegative() {
+            // use reduce method to find the smallest number in an array.
+            const smallestNum = arrOfNum.reduce((initVal, currVal) => {
+                if (initVal < currVal) {
+                    return initVal;
+                } else if (initVal > currVal) {
+                    return currVal;
+                } else if (initVal < 0) {
+                    return;
+                }
+            });
+            /* check if the reduce number is a positive integer. if true return 
+            the positive smallest number.
+            but if false return " not a positive integer " */
+            if (smallestNum < 0) {
+                return "not a positive integer";
+            } else {
+                return smallestNum;
+            }   
+        }
+
+        /*
+        Write a function pickApples that takes an array of strings representing
+        fruits and returns the array with the first 2 occurrences of "apple" removed.
+        */
+
+        const fruits = ["Apple", "Orange", "Apple", "Banana", "Apple", ];
+
+        function pickApples() {
+            // create apple counter initialize value to 0.
+            let numOfApp = 0;
+            const newFruits = fruits.filter(fruit => {
+                if (fruit == "Apple") {
+                    numOfApp++;
+                    // set condition to not more than 2 apples included in an new array.
+                    if (numOfApp > 2) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+             // all other elements return true to include.   
+            return true;
+            });
+
+            return newFruits;
+        }
+
+
+
+
+        
+
+
+
+    </script>
+</body>
+</html>

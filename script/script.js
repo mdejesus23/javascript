@@ -1,4 +1,4 @@
-const todos = [{
+let todos = [{
     title: "Get groceries",
     dueDate: "2023-10-04",
     id: "id1"
@@ -15,13 +15,16 @@ const todos = [{
   render();
 
   function addTodo() {
+    // get the text box element and assign to textBox variable.
     const textBox = document.getElementById("todo-title");
+    // get the text box value and assign to title variable.
     const title = textBox.value;
-
+    
     const datePicker = document.getElementById("date-picker");
     const dueDate = datePicker.value;
 
-    const id = new Date().getTime();
+    // convert id number to string type to match with id of the button as string also.
+    const id = "" + new Date().getTime();
 
     todos.push({
         title: title,
@@ -36,12 +39,19 @@ const todos = [{
     const deleteButton = event.target;
     const idToDelete = deleteButton.id;
 
-    todos.filter(function (todo) {
-
+    todos = todos.filter(function (todo) {
+      if (todo.id === idToDelete) {
+        return false;
+      } else {
+        return true;
+      }
     });
+
+    render();
   }
 
   function render() {
+      // reset todo-list innerHTML.
       document.getElementById("todo-list").innerHTML = "";
 
       todos.forEach(function (todo) {
@@ -52,11 +62,10 @@ const todos = [{
           deleteButton.innerText = "Delete";
           deleteButton.style = "margin-left: 12px;"
           deleteButton.onclick = deleteTodo;
-        // associate todo.id to each of their delete button.
+        // associate todo.id to each of their delete button id property.
           deleteButton.id = todo.id;
           element.appendChild(deleteButton);
-          
-
+        // put element new todo to todoLIst div container.
           const todoList = document.getElementById("todo-list");
           todoList.appendChild(element);
       });

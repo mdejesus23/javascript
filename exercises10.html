@@ -7,59 +7,25 @@
     <title>Exercises 10</title>
 </head>
 <body>
-    <div id="receipt"></div>
 
     <script>
         const cartArray = [{
             name: "Batman t-shirt",
-            price: 10,
+            price: 50,
             quantity: 4
         }, {
             name: "Ironman t-shirt",
-            price: 5,
-            quantity: 4
+            price: 45,
+            quantity: 6
         }, {
             name: "Spiderman t-shirt",
-            price: 5,
-            quantity: 4
-        }];
+            price: 40,
+            quantity: 5
+        }]
 
-        function cartTotal(arr) {
-            let total = 0;
-
-            for(let i = 0; i < arr.length; i++) {
-                total += arr[i].price * arr[i].quantity;
-            }
-            console.log(total);
+        function cartTotal() {
+            const total = cartArray.map()
         }
-
-        cartTotal(cartArray);
-
-        function displayReceipt(arr) {
-            document.getElementById("receipt").innerHTML = "";
-            const receipt = document.getElementById("receipt");
-            let total = 0;
-
-            for (let i = 0; i < arr.length; i++) {
-                // get the total price
-                total += arr[i].price * arr[i].quantity;
-                // create a div and set innerText of all the items
-                const element = document.createElement("div");
-                element.innerText = `${arr[i].name} $${arr[i].price} * ${arr[i].quantity} = $${arr[i].price * arr[i].quantity}`
-                // display all the details inside the div with id="receipt"
-                receipt.appendChild(element);
-            }
-            //display subtotal inside div with id="recipt"
-            const displayTotal = document.createElement("div");
-            displayTotal.innerText = `Total Amount = ${total}`;
-            receipt.appendChild(displayTotal);
-        }
-
-        displayReceipt(cartArray);
-
-        
-
-
     </script>
 </body>
 </html>
