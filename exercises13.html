@@ -79,10 +79,8 @@
         Write a function pickApples that takes an array of strings representing
         fruits and returns the array with the first 2 occurrences of "apple" removed.
         */
-
-        const fruits = ["Apple", "Orange", "Apple", "Banana", "Apple", ];
-
         function pickApples() {
+            const fruits = ["Apple", "Orange", "Apple", "Banana", "Apple", ];
             // create apple counter initialize value to 0.
             let numOfApp = 0;
             const newFruits = fruits.filter(fruit => {
@@ -98,10 +96,69 @@
              // all other elements return true to include.   
             return true;
             });
-
             return newFruits;
         }
 
+        // Section 13, Exercises 5,
+        // Similarly, write a function pickFruits that removes 2 apples and 1 orange from the array.
+        function pickFruits() {
+            // declare an array of fruits that will be filter
+            const fruits = ["Apple", "Orange", "Apple", "Banana", "Apple", "Orange", "Apple"];
+            // declare an Apple and Orange counter.
+            let numOfApp = 0;
+            let numOfOrange = 0;
+            // apply filter method in the fruits array.
+            const newFruits = fruits.filter(fruit => {
+                if (fruit == "Apple") { 
+                    if (numOfApp >= 2) { // set condition to remove the first 2 Apple element
+                        return true;
+                    } else {
+                        numOfApp += 1; // increment apple counter by 1 to meet condition.
+                        return false;
+                    }
+                } else if (fruit == "Orange") {
+                    if (numOfOrange >= 1) { // set condition to remove the first Orange element.
+                        return true;
+                    } else {
+                        numOfOrange += 1; // incremment orange counter by 1 to meeet condition.
+                        return false;
+                    }
+                } else {
+                    return true; // include in the array the rest of the fruiits..
+                }
+            });
+
+           return newFruits;
+        }
+
+        // Exercises 13, Section # 6.
+        // Write a function pickLastApples similar to above that removes the last 2 apples from the array. 
+        let arrFruits = ["Apple", "Orange", "Banana", "Apple", "Orange", "Apple"];
+
+        function pickLastApples(fruitArr) {
+            let numOfApple = 0;
+            // make a copy of the original array and reverse all elements.
+            const reverseFruits = [...fruitArr].reverse();
+            // apply filter method to remove 2 Apples
+            const newFruits = reverseFruits.filter(fruit => {
+                if (fruit == "Apple") {
+                    if (numOfApple >= 2) {
+                        return true;
+                    } else {
+                        numOfApple += 1;
+                        return false;
+                    }
+                } else {
+                    return true;
+                }
+            });
+
+            return newFruits.reverse(); // return the array back to its original form.
+            
+        }
+
+        console.log(pickLastApples(arrFruits));
+        
 
 
 
